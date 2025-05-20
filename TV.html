@@ -1,0 +1,140 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fdf6f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Dancing Script', cursive;
+      padding: 20px;
+    }
+
+    .envelope-container {
+      position: relative;
+      width: 280px;
+      height: 200px;
+      cursor: pointer;
+      perspective: 1000px;
+      transition: transform 0.6s;
+    }
+
+    .envelope-box {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .envelope-container.open .envelope-box {
+      transform: rotateX(180deg);
+    }
+
+    .envelope-front,
+    .envelope-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #f4c6c3;
+      border: 2px solid #d2a6a6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      border-radius: 5px;
+    }
+
+    .envelope-front {
+      background: #e5bfb7;
+      flex-direction: column;
+      z-index: 2;
+    }
+
+    .sunflower {
+      font-size: 26px;
+      margin-top: 10px;
+    }
+
+    .envelope-back {
+      transform: rotateX(180deg);
+    }
+
+    .letter {
+      display: none;
+      max-width: 100%;
+      width: 100%;
+      max-width: 600px;
+      background: #f4c6c3;
+      padding: 30px 25px;
+      border: 2px solid #ccc;
+      font-family: 'Dancing Script', cursive;
+      color: #333;
+      line-height: 1.9;
+      font-size: 20px;
+      white-space: pre-wrap;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .letter {
+        font-size: 18px;
+        padding: 20px 15px;
+        line-height: 1.8;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sobre con estilo -->
+  <div class="envelope-container" id="envelope">
+    <div class="envelope-box">
+      <div class="envelope-front">
+        <div>✉️</div>
+        <div class="sunflower">🌻</div>
+      </div>
+      <div class="envelope-back"></div>
+    </div>
+  </div>
+
+  <!-- Carta -->
+  <div class="letter" id="letter">
+Chone, 20 de mayo de 2025
+
+Querido "Tomás Villamil",
+
+Espero que al recibir esta carta no te enojes conmigo ni me mires raro ni nada por el estilo, te envío esto como un intento de darte ánimos, no soy tu amigo de día a día por lo tanto no puedo estar pendiente de ti porque capaz y hasta me bloqueas pero espero de verdad que puedas superar todo eso que no quieres hablar con nadie más, esas heridas que llevas dentro, los problemas que pasas diario, yo creo en tu fuerza y fortaleza, me duele saber que aún hay noches en las que lloras solo abrazando tu almohada y duele porque no hay nada que yo pueda hacer, solo puedo decirte que en la vida nunca estamos solos, incluso cuando genuinamente lo estamos, los sentimientos de quienes nos quieren o aprecian siempre van con nosotros, y pues, te quiero y aprecio así que eso va contigo aunque no quieras jaja, ánimo, yo sé que volverás a sonreír como cuando te conocí, o quizás hasta más. Sé feliz siempre, ese fue mi deseo de 17.
+
+Con cariño,
+
+Mateo
+  </div>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+
+    envelope.addEventListener('click', () => {
+      envelope.classList.add('open');
+      setTimeout(() => {
+        envelope.style.display = 'none';
+        letter.style.display = 'block';
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>
